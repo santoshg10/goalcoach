@@ -1,25 +1,26 @@
-import React, { Component } from 'react';
-import {firebaseApp} from '../firebase';
-
+import React, { Component } from "react";
+import { firebaseApp } from "../firebase";
+import {Link}from 'react-router';
 class SignIn extends Component {
-  constructor (props) {
-    super(props) 
-      this.state = {
-        email: '',
-        password: '',
-        error: {
-          message: ''
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+      error: {
+        message: ""
       }
-
+    };
   }
 
-  SignIn_func () {
+  SignIn_func() {
     console.log(this.state.email, this.state.password);
-    firebaseApp.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function(error){
-      console.log(error);
-    })
-
+    firebaseApp
+      .auth()
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .catch(function(error) {
+        console.log(error);
+      });
   }
   render() {
     return (
@@ -45,14 +46,13 @@ class SignIn extends Component {
             className="btn btn-primary btn-md"
             onClick={() => this.SignIn_func()}
           >
-            SignUp{" "}
+            SignIn{" "}
           </button>
           <div> {this.state.error.message} </div>
+          <div> <Link to ={'/signup'}>Signup </Link> </div>
         </div>
       </div>
-    )
+    );
   }
-
-
-};
+}
 export default SignIn;
