@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { firebaseApp } from "../firebase";
-import {Link}from 'react-router';
+import { Link } from "react-router";
 class SignIn extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +14,7 @@ class SignIn extends Component {
   }
 
   SignIn_func() {
-    console.log(this.state.email, this.state.password);
+    //console.log(this.state.email, this.state.password);
     firebaseApp
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
@@ -49,7 +49,10 @@ class SignIn extends Component {
             SignIn{" "}
           </button>
           <div> {this.state.error.message} </div>
-          <div> <Link to ={'/signup'}>Signup </Link> </div>
+          <div>
+            {" "}
+            <Link to={"/signup"}>Signup </Link>{" "}
+          </div>
         </div>
       </div>
     );
