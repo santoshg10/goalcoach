@@ -9,6 +9,8 @@ import reducer from "./reducers";
 import { logUser } from "./actions";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import GoalHome from "./components/GoalHome";
+import MapsHome from "./components/MapsHome";
 import { firebaseApp } from "./firebase";
 import "./App.css";
 const store = createStore(reducer);
@@ -30,7 +32,14 @@ ReactDOM.render(
     <Router path="/" history={browserHistory}>
       <Route path="/app" component={App}>
         App
+        
       </Route>
+      <Route path="/goalsHome" component={GoalHome}>
+        GoalsHome
+        </Route>
+      <Route path="/mapsHome" component={MapsHome}>
+        MapsHome
+        </Route>
       <Route path="/signin" component={SignIn}>
         SignIn
       </Route>
